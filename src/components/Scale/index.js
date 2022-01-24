@@ -9,9 +9,9 @@ import {
   MarksContainer,
   Mark,
   LabelsContainer,
-  Label,
   FinalLabel
 } from './styles'
+import TagLabel from '../TagLabel'
 
 
 export default function Scale({reading, useOfEnglish, writing, listening, speaking, final}) {
@@ -58,29 +58,33 @@ export default function Scale({reading, useOfEnglish, writing, listening, speaki
       </ScaleContainer>
           
       <LabelsContainer>
-        <Label color='lightgreen' mark={reading}>
-          <div />
-          <span>Reading</span>
-        </Label>
+        <TagLabel
+          tag='Reading'
+          color='lightgreen'
+          mark={reading} />
+
         {useOfEnglish ?
-          <Label color='lightblue' mark={useOfEnglish}>
-            <div />
-            <span>UseOfEnglish</span>
-          </Label>
+          <TagLabel
+            tag='UseOfEnglish'
+            color='lightblue'
+            mark={useOfEnglish} />
           : ''
         }
-        <Label color='yellow' mark={writing}>
-          <div />
-          <span>Writing</span>
-        </Label>
-        <Label color='cyan' mark={listening}>
-          <div />
-          <span>Listening</span>
-        </Label>
-        <Label color='tomato' mark={speaking}>
-          <div />
-          <span>Speaking</span>
-        </Label>
+
+        <TagLabel
+          tag='Writing'
+          color='yellow'
+          mark={writing} />
+        
+        <TagLabel
+          tag='Listening'
+          color='cyan'
+          mark={listening} />
+        
+        <TagLabel
+          tag='Speaking'
+          color='tomato'
+          mark={speaking} />
       </LabelsContainer>
       <FinalLabel mark={final} />
     </Container>
