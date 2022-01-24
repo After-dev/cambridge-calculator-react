@@ -17,13 +17,13 @@ export const cambridgePoints = {
       speaking: 30
     }
   },
-  /*B2: {
+  B2: {
     maxPoints: {
       reading: 42,
-      useOfEnglish: 42,
+      useOfEnglish: 28,
       writing: 40,
       listening: 30,
       speaking: 60
     }
-  }*/
+  }
 }

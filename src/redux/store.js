@@ -16,6 +16,9 @@ const initialState = {
         ['Nerea', 9, 0, 10, 7, 7],
         ['Nazaret', 16, 0, 27, 12, 23]
       ]
+    },
+    B2: {
+      students: [['', 0, 0, 0, 0, 0]]
     }
   }
 }
