@@ -21,7 +21,7 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
         <tr>
           {titles.map((title, col) => {
             if (col===2 && ['A2','B1'].includes(table)){
-              return ''
+              return undefined
             }
             return <th key={col}>{title}</th>
           })}
@@ -33,7 +33,7 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
           return <RowStyled key={row} selected={selectedRow===row} >
             {rowData.map( (_, col) => {
               if (col===2 && ['A2','B1'].includes(table)){
-                return ''
+                return undefined
               }
               return <td key={`${row}-${col}`}>
                 <FieldStyled

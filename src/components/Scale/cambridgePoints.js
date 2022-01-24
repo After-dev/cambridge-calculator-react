@@ -1,4 +1,13 @@
 export const cambridgePoints = {
+  A2: {
+    maxPoints: {
+      reading: 30,
+      useOfEnglish: -1,
+      writing: 30,
+      listening: 25,
+      speaking: 45
+    }
+  },
   B1: {
     maxPoints: {
       reading: 32,
