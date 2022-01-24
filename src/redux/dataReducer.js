@@ -25,7 +25,7 @@ export function dataReducer(state={}, action) {
       var table = action.payload.table
       var newState = {...state}
       var students = [...newState.tables[table].students]
-      students.push(['', 0, 0, 0, 0])
+      students.push(['', 0, 0, 0, 0, 0])
       newState.tables[table].students = students
       return newState
 

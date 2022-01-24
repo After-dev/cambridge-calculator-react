@@ -17,12 +17,13 @@ import {
   StudentMark
 } from './styles'
 import FloatingButton from './components/FloatingButton';
-import { getPercentages, getCambridgeMark } from './components/Scale/marks'
+import { getPercentages, getCambridgeMark } from './utils'
 
 function App() {
-  const [table, setTable] = useState(1)
+  const [table, setTable] = useState('B1')
   const [selectedStudent, setSelectedStudent] = useState(0)
   const [readingMark, setReadingMark] = useState(-1)
+  const [useOfEnglishMark, setUseOfEnglishMark] = useState(-1)
   const [writingMark, setWritingMark] = useState(-1)
   const [listeningMark, setListeningMark] = useState(-1)
   const [speakingMark, setSpeakingMark] = useState(-1)
@@ -30,19 +31,25 @@ function App() {
   const data = useSelector(state => selectTableStudents(state, table))
 
   useEffect(() => {
-    let {reading, writing, listening, speaking} = getPercentages(
+    let {reading, useOfEnglish, writing, listening, speaking} = getPercentages(
       table,
       data[selectedStudent][1],
       data[selectedStudent][2],
       data[selectedStudent][3],
-      data[selectedStudent][4]
+      data[selectedStudent][4],
+      data[selectedStudent][5]
     )
 
     setReadingMark(getCambridgeMark(table, reading))
+    setUseOfEnglishMark(getCambridgeMark(table, useOfEnglish))
     setWritingMark(getCambridgeMark(table, writing))
     setListeningMark(getCambridgeMark(table, listening))
     setSpeakingMark(getCambridgeMark(table, speaking))
-    setFinalMark(getCambridgeMark(table, (reading+writing+listening+speaking)/4))
+    if (['A2','B1'].includes(table)) {
+      setFinalMark(getCambridgeMark(table, (reading+writing+listening+speaking)/4))
+    } else {
+      setFinalMark(getCambridgeMark(table, (reading+useOfEnglish+writing+listening+speaking)/5))
+    }
   }, [selectedStudent, data])
 
   function changeTab(tab) {
@@ -58,16 +65,16 @@ function App() {
       <Content>
         <DataSection>
           <TabsSection>
-            {/*<Tab active={table===0} onClick={()=>changeTab(0)}>A2</Tab>*/}
-            <Tab active={table===1} onClick={()=>changeTab(1)}>B1</Tab>
-            {/*<Tab active={table==2} onClick={()=>changeTab(2)}>B2</Tab>*/}
-            {/*<Tab active={table==3} onClick={()=>changeTab(3)}>C1</Tab>*/}
-            {/*<Tab active={table==4} onClick={()=>changeTab(4)}>C2</Tab>*/}
+            {/*<Tab active={table==='A2'} onClick={()=>changeTab('A2')}>A2</Tab>*/}
+            <Tab active={table==='B1'} onClick={()=>changeTab('B1')}>B1</Tab>
+            {/*<Tab active={table=='B2'} onClick={()=>changeTab('B2')}>B2</Tab>*/}
+            {/*<Tab active={table=='C1'} onClick={()=>changeTab('C1')}>C1</Tab>*/}
+            {/*<Tab active={table=='C2'} onClick={()=>changeTab('C2')}>C2</Tab>*/}
           </TabsSection>
           <TableSection>
             <Table
               table={table}
-              titles={['Student', 'Reading', 'Writing', 'Listening', 'Speaking']}
+              titles={['Student', 'Reading', 'UseOfEn', 'Writing', 'Listening', 'Speaking']}
               data={data}
               selectedRow={selectedStudent}
               setSelectedStudent={setSelectedStudent} />
@@ -78,6 +85,7 @@ function App() {
           <StudentMark>
             <Scale
               reading={readingMark}
+              useOfEnglish={useOfEnglishMark}
               writing={writingMark}
               listening={listeningMark}
               speaking={speakingMark}

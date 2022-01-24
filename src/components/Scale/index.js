@@ -14,7 +14,7 @@ import {
 } from './styles'
 
 
-export default function Scale({reading, writing, listening, speaking, final}) {
+export default function Scale({reading, useOfEnglish, writing, listening, speaking, final}) {
   return(
     <Container>
       <ScaleContainer>
@@ -62,6 +62,13 @@ export default function Scale({reading, writing, listening, speaking, final}) {
           <div />
           <span>Reading</span>
         </Label>
+        {useOfEnglish ?
+          <Label color='lightblue' mark={useOfEnglish}>
+            <div />
+            <span>UseOfEnglish</span>
+          </Label>
+          : ''
+        }
         <Label color='yellow' mark={writing}>
           <div />
           <span>Writing</span>

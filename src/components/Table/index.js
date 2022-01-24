@@ -20,6 +20,9 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
       <thead>
         <tr>
           {titles.map((title, col) => {
+            if (col===2 && ['A2','B1'].includes(table)){
+              return ''
+            }
             return <th key={col}>{title}</th>
           })}
         </tr>
@@ -29,6 +32,9 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
         {data.map( (rowData, row) => {
           return <RowStyled key={row} selected={selectedRow===row} >
             {rowData.map( (_, col) => {
+              if (col===2 && ['A2','B1'].includes(table)){
+                return ''
+              }
               return <td key={`${row}-${col}`}>
                 <FieldStyled
                   type={col==0 ? 'text' : 'number'}

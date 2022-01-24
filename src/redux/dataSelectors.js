@@ -2,8 +2,6 @@ export const selectTables = (state) => state.tables
 
 export const selectTable = (state, table) => state.tables[table]
 
-export const selectTableName = (state, table) => state.tables[table].name
-
 export const selectTableStudents = (state, table) => state.tables[table].students
 
 export const selectTableStudentMarks = (state, table, row) => state.tables[table].students[row]
