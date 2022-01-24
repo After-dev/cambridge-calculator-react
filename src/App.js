@@ -69,7 +69,7 @@ function App() {
             <Tab active={table==='B1'} onClick={()=>changeTab('B1')}>B1</Tab>
             <Tab active={table=='B2'} onClick={()=>changeTab('B2')}>B2</Tab>
             <Tab active={table=='C1'} onClick={()=>changeTab('C1')}>C1</Tab>
-            {/*<Tab active={table=='C2'} onClick={()=>changeTab('C2')}>C2</Tab>*/}
+            <Tab active={table=='C2'} onClick={()=>changeTab('C2')}>C2</Tab>
           </TabsSection>
           <TableSection>
             <Table

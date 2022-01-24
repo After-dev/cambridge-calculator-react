@@ -22,6 +22,9 @@ const initialState = {
     },
     C1: {
       students: [['', 0, 0, 0, 0, 0]]
+    },
+    C2: {
+      students: [['', 0, 0, 0, 0, 0]]
     }
   }
 }
