@@ -25,5 +25,14 @@ export const cambridgePoints = {
       listening: 30,
       speaking: 60
     }
+  },
+  C1: {
+    maxPoints: {
+      reading: 50,
+      useOfEnglish: 28,
+      writing: 40,
+      listening: 30,
+      speaking: 75
+    }
   }
 }
