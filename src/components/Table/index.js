@@ -5,6 +5,7 @@ import {
 } from './styles'
 import { useDispatch } from 'react-redux'
 import { actionUpdate } from '../../redux/dataReducer'
+import { cambridgePoints } from '../Scale/cambridgePoints'
 
 
 export default function Table({table, titles, data, selectedRow, setSelectedStudent}) {
@@ -39,6 +40,7 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
                 <FieldStyled
                   type={col==0 ? 'text' : 'number'}
                   value={data[row][col]}
+                  success={col>0 && data[row][col] >= cambridgePoints[table].minPoints[titles[col].toLowerCase()]}
                   onChange={e=>handleChange(e, row, col)}
                   onFocus={()=>setSelectedStudent(row)} />
               </td>

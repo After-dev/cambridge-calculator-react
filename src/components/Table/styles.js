@@ -34,6 +34,8 @@ export const RowStyled = styled('tr')`
 
 export const FieldStyled = styled('input')`
   background-color: rgba(255,255,255,0.8);
+  color: ${props => props.type==='text' ? 'black' :
+                    props.success ? 'green' : 'red'};
   padding: 5px;
   border: 2px solid black;
   font-weight: bold;
