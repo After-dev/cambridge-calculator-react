@@ -7,6 +7,16 @@ export const actionNew = (table) => {
   }
 }
 
+export const actionDelete = (table, row) => {
+  return {
+    type: '@DATA/DELETE',
+    payload: {
+      table,
+      row
+    }
+  }
+}
+
 export const actionUpdate = (table, row, col, newVal) => {
   return {
     type: '@DATA/UPDATE',
@@ -26,6 +36,17 @@ export function dataReducer(state={}, action) {
       var newState = {...state}
       var students = [...newState.tables[table].students]
       students.push(['', 0, 0, 0, 0, 0])
+      newState.tables[table].students = students
+      return newState
+    
+    case '@DATA/DELETE':
+      var {table, row} = action.payload
+      var newState = {...state}
+      var students = [...newState.tables[table].students]
+      students.splice(row,1)
+      if (students.length === 0) {
+        students.push(['', 0, 0, 0, 0, 0])
+      }
       newState.tables[table].students = students
       return newState
 

@@ -2,16 +2,10 @@ import styled from 'styled-components'
 
 
 export const ButtonStyled = styled('button')`
-  background-color: green;
+  background-color: ${props => props.color};
   border: 2px solid black;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 40px;
-  font-weight: 900;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  text-align: center;
   width: 50px;
   height: 50px;
   transition: 0.2s all;

@@ -16,7 +16,7 @@ import {
   StudentResult,
   StudentMark
 } from './styles'
-import FloatingButton from './components/FloatingButton';
+import FloatingMenu from './components/FloatingMenu'
 import { getPercentages, getCambridgeMark } from './utils'
 
 function App() {
@@ -31,6 +31,10 @@ function App() {
   const data = useSelector(state => selectTableStudents(state, table))
 
   useEffect(() => {
+    if (selectedStudent >= data.length){
+      setSelectedStudent(data.length-1)
+      return
+    }
     let {reading, useOfEnglish, writing, listening, speaking} = getPercentages(
       table,
       data[selectedStudent][1],
@@ -61,6 +65,9 @@ function App() {
     <Container>
       <Header>
         <span>Cambridge Calculator</span>
+        <FloatingMenu
+          table={table}
+          selectedStudent={selectedStudent} />
       </Header>
       <Content>
         <DataSection>
@@ -97,7 +104,6 @@ function App() {
           </StudentMark>
         </InfoSection>
       </Content>
-      <FloatingButton table={table} />
     </Container>
   );
 }
