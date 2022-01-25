@@ -3,11 +3,12 @@ import {
 } from './styles'
 import Button from '../Button'
 import { useDispatch } from 'react-redux'
-import { actionNew, actionDelete } from '../../redux/dataReducer'
+import { actionNew, actionDelete, actionClear } from '../../redux/dataReducer'
 
 import { Icon } from 'react-icons-kit'
 import {userPlus} from 'react-icons-kit/fa/userPlus'
 import {userTimes} from 'react-icons-kit/fa/userTimes'
+import {trash} from 'react-icons-kit/fa/trash'
 
 
 export default function FloatingMenu({table, selectedStudent}) {
@@ -21,6 +22,10 @@ export default function FloatingMenu({table, selectedStudent}) {
     dispatch(actionDelete(table, selectedStudent))
   }
 
+  function clearStudent() {
+    dispatch(actionClear(table))
+  }
+
   return(
     <Container>
       <Button
@@ -31,6 +36,10 @@ export default function FloatingMenu({table, selectedStudent}) {
         icon={<Icon size={24} icon={userTimes} />}
         color={'red'}
         onClick={deleteStudent} />
+      <Button
+        icon={<Icon size={24} icon={trash} />}
+        color={'orange'}
+        onClick={clearStudent} />
     </Container>
   )
 }

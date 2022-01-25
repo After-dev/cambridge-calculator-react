@@ -29,6 +29,15 @@ export const actionUpdate = (table, row, col, newVal) => {
   }
 }
 
+export const actionClear = (table) => {
+  return {
+    type: '@DATA/CLEAR',
+    payload: {
+      table
+    }
+  }
+}
+
 export function dataReducer(state={}, action) {
   switch(action.type) {
     case '@DATA/NEW':
@@ -55,6 +64,14 @@ export function dataReducer(state={}, action) {
       var newState = {...state}
       var students = [...newState.tables[table].students]
       students[row][col] = newVal
+      newState.tables[table].students = students
+      return newState
+    
+    case '@DATA/CLEAR':
+      var table = action.payload.table
+      var newState = {...state}
+      console.log(newState.tables)
+      var students = [['', 0, 0, 0, 0, 0]]
       newState.tables[table].students = students
       return newState
 
