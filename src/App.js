@@ -65,11 +65,14 @@ function App() {
       <Content>
         <DataSection>
           <TabsSection>
-            <Tab active={table==='A2'} onClick={()=>changeTab('A2')}>A2</Tab>
-            <Tab active={table==='B1'} onClick={()=>changeTab('B1')}>B1</Tab>
-            <Tab active={table=='B2'} onClick={()=>changeTab('B2')}>B2</Tab>
-            <Tab active={table=='C1'} onClick={()=>changeTab('C1')}>C1</Tab>
-            <Tab active={table=='C2'} onClick={()=>changeTab('C2')}>C2</Tab>
+            {['A2','B1','B2','C1','C2'].map(tab => {
+              return <Tab
+                       key={tab}
+                       active={table===tab}
+                       onClick={()=>changeTab(tab)}>
+                       {tab}
+                      </Tab>
+            })}
           </TabsSection>
           <TableSection>
             <Table
