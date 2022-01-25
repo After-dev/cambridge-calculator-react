@@ -2,8 +2,10 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import Table from './components/Table'
 import Scale from './components/Scale'
+import FloatingMenu from './components/FloatingMenu'
 import { useSelector } from 'react-redux'
-import { selectTableStudents } from './redux/dataSelectors'
+import { selectTables, selectTableStudents } from './redux/dataSelectors'
+import { getPercentages, getCambridgeMark } from './utils'
 import {
   Container,
   Header,
@@ -16,8 +18,6 @@ import {
   StudentResult,
   StudentMark
 } from './styles'
-import FloatingMenu from './components/FloatingMenu'
-import { getPercentages, getCambridgeMark } from './utils'
 
 function App() {
   const [table, setTable] = useState('B1')
@@ -29,6 +29,11 @@ function App() {
   const [speakingMark, setSpeakingMark] = useState(-1)
   const [finalMark, setFinalMark] = useState(-1)
   const data = useSelector(state => selectTableStudents(state, table))
+  const tables = useSelector(selectTables)
+
+  useEffect(() => {
+    localStorage.setItem('tables', JSON.stringify(tables))
+  }, [data])
 
   useEffect(() => {
     if (selectedStudent >= data.length){
