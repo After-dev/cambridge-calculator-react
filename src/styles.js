@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
 
+export const bps = {
+  desktop: '@media screen and (max-width: 850px)',
+  tablet: '@media screen and (max-width: 550px)',
+  mobile: '@media screen and (max-width: 415px)'
+}
+
+
 export const Container = styled('div')`
   display: flex;
   flex-direction: column;
@@ -19,13 +26,39 @@ export const Header = styled('div')`
   align-items: center;
   justify-content: center;
   padding: 70px;
+  position: relative;
 
   & span {
     color: black;
     font-size: 50px;
     font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
     text-shadow: 3px 3px rgba(0,0,0,0.4);
+  }
+
+  ${bps.desktop}{
+    & span {
+      font-size: 30px;
+    }
+  }
+
+  ${bps.tablet}{
+    padding: 55px;
+
+    & span {
+      font-size: 20px;
+      text-shadow: 2px 2px rgba(0,0,0,0.4);
+    }
+  }
+
+  ${bps.mobile}{
+    padding: 45px;
+
+    & span {
+      font-size: 15px;
+      text-shadow: 2px 2px rgba(0,0,0,0.4);
+    }
   }
 `
 
@@ -53,23 +86,34 @@ export const DataSection = styled('div')`
 export const TabsSection = styled('div')`
   border-bottom: 2px solid black;
   display: flex;
+  overflow: scroll;
+
+  & span:first-child {
+    border-left: none;
+  }
 `
 
 
 export const Tab = styled('span')`
+  background-color: ${props => props.active ? 'rgba(255,0,0,0.8)' : 'transparent'};
+  border-left: 2px solid black;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   text-align: center;
   width: 100%;
+  min-width: 30px;
 
-  ${ props => {
-    const active = props.active
-    return `
-      background-color: ${active ? 'rgba(255,0,0,0.8)' : 'transparent'};
-    `
-  }}
+  ${bps.tablet}{
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  ${bps.mobile}{
+    font-size: 12px;
+    padding: 5px;
+  }
 `
 
 
@@ -96,6 +140,9 @@ export const StudentResult = styled('div')`
   font-weight: bold;
   height: 8%;
 
+  ${bps.tablet}{
+    font-size: 20px;
+  }
 `
 
 

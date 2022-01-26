@@ -30,15 +30,15 @@ export default function FloatingMenu({table, selectedStudent}) {
     <Container>
       <Button
         icon={<Icon size={24} icon={userPlus} />}
-        color={'lightgreen'}
+        color={'rgb(0,255,0)'}
         onClick={addNewStudent} />
       <Button
         icon={<Icon size={24} icon={userTimes} />}
-        color={'red'}
+        color={'rgb(255,0,0)'}
         onClick={deleteStudent} />
       <Button
         icon={<Icon size={24} icon={trash} />}
-        color={'orange'}
+        color={'rgb(210,105,30)'}
         onClick={clearStudent} />
     </Container>
   )

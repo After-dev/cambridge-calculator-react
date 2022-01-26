@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bps } from '../../styles'
 
 
 export const Label = styled('div')`
@@ -25,5 +26,17 @@ export const Label = styled('div')`
     overflow: hidden;
     padding-left: 5px;
     width: 90%;
+  }
+
+  ${bps.tablet}{
+    height: ${props => `${(props.mark-80)*0.678}%`};
+
+    & div {
+      border-width: 6.67px 6.67px 6.67px 0;
+    }
+
+    & span {
+      font-size: 10px;
+    }
   }
 `

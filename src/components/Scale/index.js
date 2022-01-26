@@ -47,11 +47,11 @@ export default function Scale({reading, useOfEnglish, writing, listening, speaki
 
         <MarksContainer>
           {[...Array(151)].map( (_, i) => {
-            let size = i%10==0 ? 'large' : i%5==0 ? 'medium' : 'small'
+            let size = i%10===0 ? 'large' : i%5===0 ? 'medium' : 'small'
             return <Mark key={i}
                       size={size}
                       onClick={()=>console.log(80+i)} >
-                      <span>{i%10==0 && i!=0 ? 80+i : ''}</span>
+                      <span>{i%10===0 && i!==0 ? 80+i : ''}</span>
                    </Mark>
           })}
         </MarksContainer>

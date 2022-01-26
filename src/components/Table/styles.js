@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bps } from '../../styles'
 
 
 export const TableContainer = styled('table')`
@@ -26,6 +27,10 @@ export const TableContainer = styled('table')`
       text-align: left;
     }
   }
+
+  ${bps.tablet}{
+    font-size: 12px;
+  }
 `
 
 export const RowStyled = styled('tr')`
@@ -36,8 +41,12 @@ export const FieldStyled = styled('input')`
   background-color: rgba(255,255,255,0.8);
   color: ${props => props.type==='text' ? 'black' :
                     props.success ? 'green' : 'red'};
-  padding: 5px;
   border: 2px solid black;
   font-weight: bold;
+  padding: 5px;
   width: 100%;
+
+  ${bps.tablet}{
+    font-size: 10px;
+  }
 `

@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('tables', JSON.stringify(tables))
-  }, [data])
+  }, [data, tables])
 
   useEffect(() => {
     if (selectedStudent >= data.length){
@@ -59,7 +59,7 @@ function App() {
     } else {
       setFinalMark(getCambridgeMark(table, (reading+useOfEnglish+writing+listening+speaking)/5))
     }
-  }, [selectedStudent, data])
+  }, [selectedStudent, data, table])
 
   function changeTab(tab) {
     setSelectedStudent(0)

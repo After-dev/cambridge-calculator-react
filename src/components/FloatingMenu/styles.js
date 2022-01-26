@@ -2,9 +2,8 @@ import styled from 'styled-components'
 
 
 export const Container = styled('div')`
-  background: green;
   position: absolute;
-  top: 150px;
+  bottom: 10px;
 
   & button {
     margin-left: 20px;

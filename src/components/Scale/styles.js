@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bps } from '../../styles'
 
 
 export const Container = styled('div')`
@@ -43,6 +44,10 @@ export const Category = styled('div')`
   margin-top: 5px;
   transform: rotateZ(180deg);
   writing-mode: vertical-LR;
+
+  ${bps.tablet}{
+    font-size: 10px;
+  }
 `
 
 
@@ -82,6 +87,12 @@ export const Level = styled('div')`
   width: 50px;
   height: 50px;
   z-index: 1;
+
+  ${bps.tablet}{
+    font-size: 14px;
+    width: 35px;
+    height: 35px;
+  }
 `
 
 
@@ -98,7 +109,7 @@ export const MarksContainer = styled('div')`
 
 export const Mark = styled('div')`
   background: rgba(194, 193, 192, 1);
-  width: ${props => props.size=='large' ? '90%' : props.size=='medium' ? '45%' : '20%'};
+  width: ${props => props.size==='large' ? '90%' : props.size==='medium' ? '45%' : '20%'};
   height: 0.3%;
 
   & span {

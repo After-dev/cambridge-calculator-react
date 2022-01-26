@@ -12,7 +12,7 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
   const dispatch = useDispatch()
 
   function handleChange(e, row, col) {
-    let newVal = col==0 ? e.target.value : parseInt(e.target.value)
+    let newVal = col===0 ? e.target.value : parseInt(e.target.value)
     dispatch(actionUpdate(table, row, col, newVal))
   }
 
@@ -38,7 +38,7 @@ export default function Table({table, titles, data, selectedRow, setSelectedStud
               }
               return <td key={`${row}-${col}`}>
                 <FieldStyled
-                  type={col==0 ? 'text' : 'number'}
+                  type={col===0 ? 'text' : 'number'}
                   value={data[row][col]}
                   success={col>0 && data[row][col] >= cambridgePoints[table].minPoints[titles[col].toLowerCase()]}
                   onChange={e=>handleChange(e, row, col)}

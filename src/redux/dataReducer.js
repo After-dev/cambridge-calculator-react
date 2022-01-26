@@ -39,19 +39,22 @@ export const actionClear = (table) => {
 }
 
 export function dataReducer(state={}, action) {
+  let table, row, col, newVal
+  let newState, students
   switch(action.type) {
     case '@DATA/NEW':
-      var table = action.payload.table
-      var newState = {...state}
-      var students = [...newState.tables[table].students]
+      table = action.payload.table
+      newState = {...state}
+      students = [...newState.tables[table].students]
       students.push(['', 0, 0, 0, 0, 0])
       newState.tables[table].students = students
       return newState
     
     case '@DATA/DELETE':
-      var {table, row} = action.payload
-      var newState = {...state}
-      var students = [...newState.tables[table].students]
+      table = action.payload.table
+      row = action.payload.row
+      newState = {...state}
+      students = [...newState.tables[table].students]
       students.splice(row,1)
       if (students.length === 0) {
         students.push(['', 0, 0, 0, 0, 0])
@@ -60,18 +63,20 @@ export function dataReducer(state={}, action) {
       return newState
 
     case '@DATA/UPDATE':
-      var {table, row, col, newVal} = action.payload
-      var newState = {...state}
-      var students = [...newState.tables[table].students]
+      table = action.payload.table
+      row = action.payload.row
+      col = action.payload.col
+      newVal = action.payload.newVal
+      newState = {...state}
+      students = [...newState.tables[table].students]
       students[row][col] = newVal
       newState.tables[table].students = students
       return newState
     
     case '@DATA/CLEAR':
-      var table = action.payload.table
-      var newState = {...state}
-      console.log(newState.tables)
-      var students = [['', 0, 0, 0, 0, 0]]
+      table = action.payload.table
+      newState = {...state}
+      students = [['', 0, 0, 0, 0, 0]]
       newState.tables[table].students = students
       return newState
 

@@ -8,7 +8,7 @@ export default function Button({icon, color, onClick}) {
     <ButtonStyled
       color={color}
       onClick={onClick} >
-      {icon}
+        {icon}
     </ButtonStyled>
   )
 }
