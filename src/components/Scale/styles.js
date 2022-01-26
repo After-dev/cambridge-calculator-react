@@ -19,7 +19,7 @@ export const CategoriesContainer = styled('div')`
   display: flex;
   flex-direction: column;
   width: 10%;
-
+  
   & div {
     height: 26.5%;
   }
@@ -42,8 +42,10 @@ export const Category = styled('div')`
   font-size: 15px;
   font-weight: bold;
   margin-top: 5px;
-  transform: rotateZ(180deg);
-  writing-mode: vertical-LR;
+
+  & span {
+    transform: rotateZ(-90deg);
+  }
 
   ${bps.tablet}{
     font-size: 10px;

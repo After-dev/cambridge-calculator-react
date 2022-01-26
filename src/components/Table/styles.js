@@ -8,16 +8,6 @@ export const TableContainer = styled('table')`
 
   & tr td {
     width: 10%;
-
-    & input {
-      text-align: center;
-    }
-
-    & input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
   }
 
   & tr td:first-child {
@@ -44,7 +34,22 @@ export const FieldStyled = styled('input')`
   border: 2px solid black;
   font-weight: bold;
   padding: 5px;
+  text-align: center;
   width: 100%;
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:focus {
+    outline: 4px solid blue;
+  }
 
   ${bps.tablet}{
     font-size: 10px;

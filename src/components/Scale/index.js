@@ -30,9 +30,9 @@ function Scale({reading, useOfEnglish, writing, listening, speaking, final}) {
     <Container>
       <ScaleContainer>
         <CategoriesContainer>
-          <Category active={final>=180}>PROFICIENT</Category>
-          <Category active={140<=final && final<180}>INDEPENDENT</Category>
-          <Category active={100<=final && final<140}>BASIC</Category>
+          <Category active={final>=180}><span>PROFICIENT</span></Category>
+          <Category active={140<=final && final<180}><span>INDEPENDENT</span></Category>
+          <Category active={100<=final && final<140}><span>BASIC</span></Category>
           <Category active={final<100}></Category>
         </CategoriesContainer>
 
