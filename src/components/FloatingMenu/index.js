@@ -11,17 +11,33 @@ import {userTimes} from 'react-icons-kit/fa/userTimes'
 import {trash} from 'react-icons-kit/fa/trash'
 
 
-export default function FloatingMenu({table, selectedStudent}) {
+/**
+ * Menú superponible que contiene los botones de acciones
+ * 
+ * @component
+ * @prop {string} table Tabla seleccionada actualmente
+ * @prop {int} selectedStudent Posición en la tabla del estudiante seleccionado
+ */
+function FloatingMenu({table, selectedStudent}) {
   const dispatch = useDispatch()
 
+  /**
+   * Añadir nuevo estudiante a la tabla seleccionada
+   */
   function addNewStudent() {
     dispatch(actionNew(table))
   }
 
+  /**
+   * Eliminar estudiante seleccionado de la tabla seleccionada
+   */
   function deleteStudent() {
     dispatch(actionDelete(table, selectedStudent))
   }
 
+  /**
+   * Eliminar todos los estudiantes de la tabla seleccionada
+   */
   function clearStudent() {
     dispatch(actionClear(table))
   }
@@ -43,3 +59,5 @@ export default function FloatingMenu({table, selectedStudent}) {
     </Container>
   )
 }
+
+export default FloatingMenu

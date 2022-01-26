@@ -14,7 +14,18 @@ import {
 import TagLabel from '../TagLabel'
 
 
-export default function Scale({reading, useOfEnglish, writing, listening, speaking, final}) {
+/**
+ * Escala de notas Cambridge que muestra la nota de cada parte y la final
+ * 
+ * @component
+ * @prop {int} reading Nota de la parte de reading
+ * @prop {int} useOfEnglish Nota de la parte de useOfEnglish
+ * @prop {int} writing Nota de la parte de writing
+ * @prop {int} listening Nota de la parte de listening
+ * @prop {int} speaking Nota de la parte de speaking
+ * @prop {int} final Nota final (media de las anteriores)
+ */
+function Scale({reading, useOfEnglish, writing, listening, speaking, final}) {
   return(
     <Container>
       <ScaleContainer>
@@ -90,3 +101,5 @@ export default function Scale({reading, useOfEnglish, writing, listening, speaki
     </Container>
   )
 }
+
+export default Scale
